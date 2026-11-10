@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#172b47">
+  <title>LoveGoBuy spreadsheet – svensk guide till fynd, storlekar och QC</title>
+  <meta name="description" content="Utforska LoveGoBuy spreadsheet med svenska råd om storlekar, QC-bilder och totalbudget. Välj kategori och fortsätt till Hipobuyfind för fler produktidéer.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:title" content="LoveGoBuy spreadsheet – hitta din stil med bättre underlag">
+  <meta property="og:description" content="En oberoende svensk guide till produktlänkar, passform, bildgranskning och en genomtänkt inköpslista.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <meta property="og:image:alt" content="Röd Nike-sneaker fotograferad mot en röd bakgrund">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://si.geilicdn.com" crossorigin>
+  <!--
+    Filnamn: index.html.
+    Ange sidans egen canonical-URL när publiceringsdomänen är känd.
+    Bing-sökning och RSS försöktes men gav ingen verifierbar topp 10.
+    Relaterade sidor hittades via en alternativ söktjänst; ingen Bing-rankning påstås.
+    Bakgrund:
+    https://lovegobuy.io/
+    https://lovegobuy.org/
+    https://lovegobuy.cc/guide/how-to-use-lovegobuy-spreadsheet/
+    https://lovego-buy.courses/guides/lovegobuy-spreadsheet
+    Texten är självständigt skriven. Bilder är stilreferenser, inte lagerbesked.
+  -->
+  <style>
+    :root {
+      --paper: #f6f3ec;
+      --white: #fffefa;
+      --ink: #172b47;
+      --muted: #526174;
+      --line: #d6d8d6;
+      --orange: #bc3e23;
+      --pale: #eadfcf;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; text-underline-offset: 4px; }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 5px;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+
+    h1, h2, h3, p, figure { margin: 0; }
+
+    h1, h2, h3 { line-height: 1.12; text-wrap: balance; }
+
+    h1 {
+      font-size: clamp(2.5rem, 6.1vw, 5.4rem);
+      letter-spacing: -.055em;
+      max-width: 850px;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.2vw, 2.9rem);
+      letter-spacing: -.035em;
+    }
+
+    h3 { font-size: 1.22rem; letter-spacing: -.02em; }
+    p + p { margin-top: 14px; }
+
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: block;
+      font-size: .73rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      font-weight: 750;
+      margin-bottom: 15px;
+    }
+
+    .muted { color: var(--muted); }
+    .top { border-bottom: 1px solid var(--line); }
+
+    .top .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 23px;
+    }
+
+    .logo {
+      font-size: 1.22rem;
+      font-weight: 850;
+      letter-spacing: -.04em;
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--orange); }
+
+    .top-note {
+      font-size: .8rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .catalogue {
+      padding-block: 28px 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .category-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .category-head h2 { font-size: 1rem; letter-spacing: 0; }
+    .category-head p { font-size: .8rem; color: var(--muted); }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 9px;
+    }
+
+    .categories a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-height: 58px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      font-size: .83rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .categories a span { color: var(--orange); }
+
+    .categories a:hover {
+      border-color: var(--ink);
+      background: #eee9df;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 40px;
+      align-items: center;
+      padding-block: 58px;
+    }
+
+    .hero-copy .eyebrow { color: var(--orange); }
+
+    .hero-copy p {
+      max-width: 590px;
+      margin-top: 23px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      background: var(--ink);
+      color: white;
+      padding: 15px 22px;
+      border-radius: 7px;
+      font-weight: 700;
+      text-decoration: none;
+      min-height: 50px;
+    }
+
+    .button:hover { background: #294767; }
+    .hero-copy .button { margin-top: 25px; }
+
+    .destination {
+      display: block;
+      margin-top: 12px;
+      font-size: .77rem;
+      color: var(--muted);
+    }
+
+    .hero-visual { position: relative; }
+
+    .hero-visual img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .hero-visual figcaption {
+      font-size: .77rem;
+      padding-top: 10px;
+      color: var(--muted);
+    }
+
+    .stamp {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 9px 13px;
+      border-radius: 50px;
+      background: var(--white);
+      font-size: .72rem;
+      font-weight: 750;
+    }
+
+    .answer {
+      display: grid;
+      grid-template-columns: .4fr 1fr;
+      gap: 35px;
+      background: var(--ink);
+      color: white;
+      border-radius: var(--radius);
+      padding: 30px 35px;
+    }
+
+    .answer h2 { font-size: 1.5rem; }
+    .answer p { color: #e0e6ee; }
+    .section { padding-block: 65px; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 28px;
+    }
+
+    .section-head p {
+      max-width: 400px;
+      font-size: .94rem;
+      color: var(--muted);
+    }
+
+    .looks {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .look { min-width: 0; }
+
+    .look figure {
+      background: #e9e6de;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .look img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: contain;
+      background: white;
+    }
+
+    .look figcaption {
+      padding: 10px 13px;
+      font-size: .71rem;
+      color: var(--muted);
+    }
+
+    .look h3 { margin-top: 17px; font-size: 1.12rem; }
+
+    .look p {
+      font-size: .88rem;
+      margin-top: 9px;
+      color: var(--muted);
+    }
+
+    .look a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: .83rem;
+      font-weight: 750;
+    }
+
+    .note {
+      margin-top: 25px;
+      font-size: .8rem;
+      color: var(--muted);
+      border-left: 3px solid var(--orange);
+      padding-left: 14px;
+    }
+
+    .editorial {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .article {
+      background: var(--white);
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .number {
+      font-size: .77rem;
+      color: var(--orange);
+      font-weight: 800;
+      letter-spacing: .09em;
+    }
+
+    .article h3 {
+      margin: 12px 0 16px;
+      font-size: 1.55rem;
+    }
+
+    .article p { color: var(--muted); font-size: .94rem; }
+    .article strong { color: var(--ink); font-weight: 650; }
+
+    .article a {
+      display: inline-block;
+      margin-top: 18px;
+      font-weight: 700;
+      font-size: .86rem;
+    }
+
+    .table-layout {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .table-layout > div > p {
+      margin-top: 18px;
+      color: var(--muted);
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 440px;
+      text-align: left;
+      font-size: .9rem;
+    }
+
+    caption {
+      text-align: left;
+      padding: 18px 20px;
+      font-weight: 750;
+    }
+
+    th, td {
+      padding: 13px 20px;
+      border-top: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    thead th { background: #ece8df; font-size: .78rem; }
+    tbody th { width: 33%; font-weight: 650; }
+    td { color: var(--muted); }
+
+    .cost {
+      background: var(--pale);
+      padding: 30px 35px;
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: .7fr 1fr;
+      gap: 30px;
+      margin-top: 28px;
+    }
+
+    .cost h3 { font-size: 1.4rem; }
+    .cost p { font-size: .93rem; }
+    .faq { border-top: 1px solid var(--line); }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: .6fr 1fr;
+      gap: 55px;
+    }
+
+    .faq-intro p { margin-top: 18px; color: var(--muted); }
+
+    details {
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+    }
+
+    details:first-child { border-top: 1px solid var(--line); }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      padding-right: 12px;
+    }
+
+    details p {
+      color: var(--muted);
+      padding-top: 13px;
+      font-size: .94rem;
+    }
+
+    .closing {
+      background: var(--ink);
+      color: #fff;
+      padding-block: 40px;
+    }
+
+    .closing .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .closing h2 { font-size: 1.8rem; }
+
+    .closing p {
+      margin-top: 12px;
+      color: #dce3ec;
+      max-width: 650px;
+    }
+
+    .closing .button {
+      background: var(--white);
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    footer {
+      padding-block: 28px;
+      font-size: .77rem;
+      color: var(--muted);
+    }
+
+    footer .wrap {
+      display: grid;
+      grid-template-columns: .4fr 1fr;
+      gap: 30px;
+    }
+
+    footer .logo { color: var(--ink); font-size: 1rem; }
+    footer p { max-width: 790px; }
+
+    @media (min-width: 900px) {
+      .editorial, .table-section, .faq {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 700px;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .categories { grid-template-columns: repeat(3, 1fr); }
+      .hero { gap: 25px; }
+      .looks { grid-template-columns: repeat(2, 1fr); gap: 30px 20px; }
+      .answer, .table-layout, .faq-layout { grid-template-columns: 1fr; gap: 22px; }
+      .section { padding-block: 45px; }
+      .closing .wrap { align-items: start; flex-direction: column; }
+    }
+
+    @media (max-width: 600px) {
+      .wrap { width: calc(100% - 30px); }
+      .top .wrap { padding-block: 17px; }
+      .top-note { font-size: .68rem; max-width: 145px; }
+      .logo { font-size: 1.08rem; }
+      .categories { grid-template-columns: repeat(2, 1fr); }
+      .categories a { font-size: .79rem; min-height: 52px; padding: 10px; }
+      .category-head { align-items: start; flex-direction: column; gap: 4px; }
+      .hero { grid-template-columns: 1fr; padding-block: 35px; gap: 28px; }
+      .hero-copy p { font-size: 1rem; }
+      .hero-visual { max-width: 440px; width: 100%; }
+      .hero-visual img { aspect-ratio: 5/4; }
+      .answer { padding: 26px 23px; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 15px; }
+      .article-grid { grid-template-columns: 1fr; }
+      .article { padding: 23px; }
+      .cost { grid-template-columns: 1fr; padding: 25px; gap: 15px; }
+      .look h3 { font-size: 1rem; }
+      .look p { font-size: .82rem; }
+      .look figcaption { font-size: .65rem; padding: 8px; }
+      .looks { gap: 27px 14px; }
+      footer .wrap { grid-template-columns: 1fr; gap: 12px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "LoveGoBuy spreadsheet – svensk guide till fynd, storlekar och QC",
+        "description": "En oberoende svensk guide till produktlänkar, passform, bildgranskning och en genomtänkt inköpslista.",
+        "inLanguage": "sv",
+        "about": {
+          "@type": "Thing",
+          "name": "LoveGoBuy spreadsheet"
+        },
+        "hasPart": [
+          {
+            "@type": "Article",
+            "headline": "Storleken börjar med ett mått",
+            "inLanguage": "sv",
+            "description": "Jämför innersula, bröstvidd, axelbredd och plagglängd med något som redan passar."
+          },
+          {
+            "@type": "Article",
+            "headline": "LoveGoBuy QC: läs bilderna med en fråga",
+            "inLanguage": "sv",
+            "description": "Granska färgvariant, sömmar, form och detaljer utan att behandla bilder som äkthetsbevis."
+          },
+          {
+            "@type": "Article",
+            "headline": "LoveGoBuy produktlänkar som går att följa",
+            "inLanguage": "sv",
+            "description": "Spara källänk, variant och datum för att lättare upptäcka ändrade produktuppgifter."
+          },
+          {
+            "@type": "Article",
+            "headline": "En budget som rymmer hela beställningen",
+            "inLanguage": "sv",
+            "description": "Skilj varupris från frakt, avgifter och möjliga importkostnader."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "sv",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Vad är en LoveGoBuy spreadsheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En LoveGoBuy spreadsheet är en organiserad lista med produktidéer och länkar som kan användas vid research inför ett köp. Den ersätter inte kontroll av aktuell produkt, variant, storlek och villkor hos säljaren eller inköpsplattformen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Är detta LoveGoBuys officiella webbplats?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nej. Detta är en oberoende svenskspråkig inspirations- och jämförelseguide utan påstådd officiell koppling till LoveGoBuy eller de varumärken som nämns."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vart leder sidans knappar och kategorier?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kategorilänkarna öppnar respektive kategori på hipobuyfind.com. Övriga länkar öppnar https://www.hipobuyfind.com. De leder inte direkt till LoveGoBuys kassa eller till en bestämd produkt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hur väljer jag storlek på skor och kläder?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jämför produktens måttabell med ett plagg eller ett par skor som redan passar. Kontrollera innersulans längd för skor och bröstvidd, axelbredd samt längd för överdelar. Fråga säljaren om mått saknas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bevisar QC-bilder att en vara är äkta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nej. QC-bilder kan visa synliga detaljer och vissa fel, men de bevisar inte äkthet, materialsammansättning eller långsiktig hållbarhet. Produktbilderna här är stilreferenser och innebär ingen äkthetsgaranti."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hur räknar jag på leverans till Sverige?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Utgå från varupris och kontrollera sedan inrikes frakt, eventuella service- och betalningsavgifter, internationell frakt samt tillämpliga importkostnader. Använd aktuella uppgifter för destination, paketvikt och paketmått; sidan anger inga fasta fraktpriser eller leveranstider."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/uogyu/">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="https://www.hipobuyfind.com" aria-label="Öppna hipobuyfind.com">hipobuyfind<span>.com</span></a>
+      <p class="top-note">Svensk stilguide<br>Oberoende inspiration &amp; praktiska råd</p>
+    </div>
+  </header>
+
+  <main id="huvudinnehall">
+    <nav class="catalogue" aria-label="Produktkategorier på Hipobuyfind">
+      <div class="wrap">
+        <div class="category-head">
+          <h2>Börja med en kategori</h2>
+          <p>Alla kategorier öppnas på hipobuyfind.com ↗</p>
+        </div>
+        <div class="categories">
+          <a href="https://hipobuyfind.com/category-911-Shoes.html">Shoes <span aria-hidden="true">↗</span></a>
+          <a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Hoodies/Sweaters <span aria-hidden="true">↗</span></a>
+          <a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-Shirts <span aria-hidden="true">↗</span></a>
+          <a href="https://hipobuyfind.com/category-914-Jackets.html">Jackets <span aria-hidden="true">↗</span></a>
+          <a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Pants/Shorts <span aria-hidden="true">↗</span></a>
+          <a href="https://hipobuyfind.com/category-916-Headwear.html">Headwear <span aria-hidden="true">↗</span></a>
+          <a href="https://hipobuyfind.com/category-917-Sets.html">Sets <span aria-hidden="true">↗</span></a>
+          <a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Underwear/underpants <span aria-hidden="true">↗</span></a>
+          <a href="https://hipobuyfind.com/category-919-Jersey.html">Jersey <span aria-hidden="true">↗</span></a>
+          <a href="https://hipobuyfind.com/category-920-Accessories.html">Accessories <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero wrap" aria-labelledby="sidtitel">
+      <div class="hero-copy">
+        <span class="eyebrow">Stilanteckningar / skor · kläder · detaljer</span>
+        <h1 id="sidtitel">LoveGoBuy spreadsheet.<br>Mer stil.<br>Bättre koll.</h1>
+        <p>Från första sneakeridén till en genomtänkt inköpslista. Här får du ett svenskt perspektiv på produktlänkar, passform och bildgranskning – med kategoriingångar till Hipobuyfind.</p>
+        <a class="button" href="https://www.hipobuyfind.com">Utforska Hipobuyfind <span aria-hidden="true">↗</span></a>
+        <span class="destination">Du fortsätter till www.hipobuyfind.com.</span>
+      </div>
+      <figure class="hero-visual">
+        <span class="stamp">01 / Färg som utgångspunkt</span>
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+          width="900"
+          height="900"
+          alt="Röd Nike-sneaker med vit swoosh mot en röd bakgrund"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async">
+        <figcaption>Nike som stilreferens. Illustrationsfoto, inte en specifik vara till försäljning.</figcaption>
+      </figure>
+    </section>
+
+    <aside class="answer wrap" aria-labelledby="kort-svar">
+      <h2 id="kort-svar">Vad är en<br>spreadsheet?</h2>
+      <p>En <strong>LoveGoBuy spreadsheet</strong> är en organiserad lista med produktidéer och länkar som kan användas vid research inför ett köp. Använd den för att hitta och jämföra alternativ. Kontrollera sedan den aktuella varan, varianten och villkoren hos säljaren eller inköpsplattformen.</p>
+    </aside>
+
+    <section class="section wrap" aria-labelledby="stilreferenser">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Detaljer att titta närmare på</span>
+          <h2 id="stilreferenser">Fyra uttryck.<br>Fyra olika kontroller.</h2>
+        </div>
+        <p>LoveGoBuy finds blir lättare att jämföra när varje bild följs av en konkret fråga om mått, material eller konstruktion.</p>
+      </div>
+
+      <div class="looks">
+        <article class="look">
+          <figure>
+            <img
+              src="https://si.geilicdn.com/open1623462477-1234478995-7a8100000194c2482f090a8115b5_1200_1200.jpg"
+              width="1200"
+              height="1200"
+              alt="Beige keps med GG-mönster och rödgrön rand, listad som Gucci"
+              loading="lazy"
+              decoding="async">
+            <figcaption>Gucci / mönster &amp; proportioner</figcaption>
+          </figure>
+          <h3>Kepsens form först</h3>
+          <p>Kontrollera huvudomkrets, skärmens längd och hur stängningen justeras. En frontbild berättar inte hur kepsen sitter.</p>
+          <a href="https://www.hipobuyfind.com">Utforska fler stilidéer ↗</a>
+        </article>
+
+        <article class="look">
+          <figure>
+            <img
+              src="https://si.geilicdn.com/open1792148229-1234478995-292700000196e96fc9de0aa0834c_1080_1080.jpg"
+              width="1080"
+              height="1080"
+              alt="Brunt monogrammönstrat bälte med guldfärgat LV-spänne"
+              loading="lazy"
+              decoding="async">
+            <figcaption>Louis Vuitton / bältets skala</figcaption>
+          </figure>
+          <h3>Måttet vid rätt hål</h3>
+          <p>Be om avståndet från spännet till det mittersta hålet. Bältets totala längd säger mindre om passformen.</p>
+          <a href="https://www.hipobuyfind.com">Öppna Hipobuyfind ↗</a>
+        </article>
+
+        <article class="look">
+          <figure>
+            <img
+              src="https://si.geilicdn.com/open1792148229-1234478995-403200000196e9827c180a23b491_2560_2560.jpg"
+              width="2560"
+              height="2560"
+              alt="Svart texturerat bälte med silverfärgat H-format spänne"
+              loading="lazy"
+              decoding="async">
+            <figcaption>Hermès som stilreferens / H-spänne</figcaption>
+          </figure>
+          <h3>Ytan och kanterna</h3>
+          <p>Jämför bältesbredd, hålavstånd och kantfinish. Ett H-format spänne fastställer inte tillverkare eller äkthet.</p>
+          <a href="https://www.hipobuyfind.com">Se fler accessoaridéer ↗</a>
+        </article>
+
+        <article class="look">
+          <figure>
+            <img
+              src="https://si.geilicdn.com/open1623462477-1234478995-1460000001956ccacb510a22d249_1200_1200.jpg"
+              width="1200"
+              height="1200"
+              alt="Keps med svartvitt Oblique-mönster, listad som Dior"
+              loading="lazy"
+              decoding="async">
+            <figcaption>Dior / kontrast &amp; mönster</figcaption>
+          </figure>
+          <h3>Se hela mönstret</h3>
+          <p>Granska sömmar på kepsen och be om bilder från sidan. Kontrollera både mönsterplacering och justerbart spänne.</p>
+          <a href="https://www.hipobuyfind.com">Fortsätt till katalogen ↗</a>
+        </article>
+      </div>
+
+      <p class="note">Bilderna är visuella referenser från externa bildkällor. Varumärkesnamn beskriver motiv eller listning; de innebär ingen officiell koppling, lagerbekräftelse eller äkthetsgaranti.</p>
+    </section>
+
+    <section class="section editorial" aria-labelledby="guider">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Läs före nästa klick</span>
+            <h2 id="guider">LoveGoBuy guide:<br>från inspiration till underlag.</h2>
+          </div>
+          <p>Fyra korta artiklar som hjälper dig att bedöma vad en produktbeskrivning faktiskt berättar.</p>
+        </div>
+
+        <div class="article-grid">
+          <article class="article">
+            <span class="number">01 / PASSFORM</span>
+            <h3>Storleken börjar med ett mått</h3>
+            <p>En användbar <strong>storleksguide för sneakers</strong> visar mer än EU-numret. Jämför <strong>innersulans längd i centimeter</strong> med ett par som redan passar och kontrollera om måttet gäller innersulan eller foten. Blanda inte ihop dessa två mått.</p>
+            <p>För en <strong>oversized hoodie med rätt passform</strong> är <strong>bröstvidd och axelbredd</strong> centrala. Kontrollera även <strong>plagglängd på T-shirts</strong> och <strong>midjemått på byxor och shorts</strong>. Lägg plagget plant när du mäter hemma och använd samma metod som säljaren.</p>
+            <p>För jackor: lämna utrymme för lagret du tänker ha under. För underkläder och träningsset: läs materialuppgifter och returvillkor innan du väljer storlek.</p>
+            <a href="https://www.hipobuyfind.com">Hitta plagg att jämföra på Hipobuyfind ↗</a>
+          </article>
+
+          <article class="article">
+            <span class="number">02 / BILDGRANSKNING</span>
+            <h3>LoveGoBuy QC: läs bilderna med en fråga</h3>
+            <p>Börja med <strong>QC-bilder för sneakers</strong> som visar båda skorna från samma vinkel. Se efter <strong>sömmar och limrester</strong>, sulans form och om höger och vänster sko ser jämna ut. En enda snygg produktbild räcker sällan för en jämförelse.</p>
+            <p>Vid <strong>kontroll av färgvariant</strong> behöver du ta hänsyn till ljus och vitbalans. Efterfråga <strong>närbilder på material och detaljer</strong> om något är otydligt. Skilj mellan <strong>lagerbilder och säljarbilder</strong>, och använd <strong>måttband i produktbilder</strong> när passformen är avgörande.</p>
+            <p>En bildkontroll kan hjälpa dig att upptäcka synliga problem. Den bevisar inte äkthet, exakt materialinnehåll eller hur varan håller efter användning.</p>
+            <a href="https://www.hipobuyfind.com">Utforska motiv och produktidéer ↗</a>
+          </article>
+
+          <article class="article">
+            <span class="number">03 / PRODUKTLÄNKAR</span>
+            <h3>LoveGoBuy produktlänkar som går att följa</h3>
+            <p>Vill du <strong>spara produktlänkar från Weidian</strong>, <strong>jämföra Taobao-listningar</strong> eller <strong>kontrollera en 1688-variant</strong>? Skriv ned produktnamn, källänk och vald färg eller storlek tillsammans. Kontrollera att din inköpsplattform stöder länken innan du räknar med att kunna beställa.</p>
+            <p>En <strong>inköpslista för kläder och skor</strong> blir mer användbar med <strong>datum för priskontroll</strong> och en anteckning om vad som fortfarande är oklart. Vid <strong>trasiga produktlänkar</strong>: sök efter produktens exakta namn och kontrollera att en ny listning faktiskt avser samma variant.</p>
+            <p>Sidans knappar går till Hipobuyfind för fortsatt utforskning. De fungerar inte som en länkconverter och garanterar inte att en viss vara finns hos LoveGoBuy.</p>
+            <a href="https://www.hipobuyfind.com">Fortsätt din produktresearch ↗</a>
+          </article>
+
+          <article class="article">
+            <span class="number">04 / BUDGET</span>
+            <h3>En budget som rymmer hela beställningen</h3>
+            <p>Vid <strong>beräkning av total kostnad</strong> behöver du skilja varupriset från övriga delar. Jämför <strong>internationell frakt till Sverige</strong> med aktuella uppgifter om destination och paket. <strong>Paketvikt och volymvikt</strong> kan ge olika underlag beroende på transportörens villkor.</p>
+            <p>Granska även <strong>betalningsavgifter och valutaväxling</strong>, eventuell inrikes frakt och <strong>moms och importavgifter</strong> som gäller för din situation. Läs <strong>returvillkor före beställning</strong>, särskilt när returen kan behöva ske innan internationell leverans.</p>
+            <p>Sidan anger inga fasta priser, skattesatser eller leveranstider. Använd uppgifterna i det aktuella köpflödet och kontrollera vilka kostnader som ingår innan du betalar.</p>
+            <a href="https://www.hipobuyfind.com">Utforska alternativ innan du väljer ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section table-section wrap" aria-labelledby="anteckningar">
+      <div class="table-layout">
+        <div>
+          <span class="eyebrow">Din egen jämförelse</span>
+          <h2 id="anteckningar">Spara färre saker.<br>Kom ihåg mer.</h2>
+          <p>Du behöver ingen komplicerad mall. Anteckna det som gör att du kan återvända till en vara och förstå varför den var intressant.</p>
+          <p>För sporttröjor, matchande set och accessoarer gäller samma princip: spara den exakta varianten, inte bara en allmän produktbild.</p>
+        </div>
+
+        <div class="table-scroll">
+          <table>
+            <caption>Fält att använda i din egen lista</caption>
+            <thead>
+              <tr>
+                <th scope="col">Fält</th>
+                <th scope="col">Vad du skriver ned</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Produkt &amp; källa</th>
+                <td>Ett tydligt namn och länken till den aktuella listningen.</td>
+              </tr>
+              <tr>
+                <th scope="row">Variant</th>
+                <td>Färg, storlek, modellversion och antal.</td>
+              </tr>
+              <tr>
+                <th scope="row">Passform</th>
+                <td>Relevanta mått och vad du jämfört med hemma.</td>
+              </tr>
+              <tr>
+                <th scope="row">Bildunderlag</th>
+                <td>Vilka vinklar du sett och vilka detaljer som saknas.</td>
+              </tr>
+              <tr>
+                <th scope="row">Budget</th>
+                <td>Kontrollerat varupris, valuta, datum och öppna kostnadsfrågor.</td>
+              </tr>
+              <tr>
+                <th scope="row">Nästa steg</th>
+                <td>Jämför vidare, fråga säljaren eller ta bort alternativet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="cost">
+        <h3>Har du två liknande alternativ?</h3>
+        <p>Jämför samma storlek, färg, antal och tillbehör. Om ett alternativ saknar tydliga mått eller bilder, skriv upp den osäkerheten innan du jämför priset. En saknad uppgift är också relevant information.</p>
+      </div>
+    </section>
+
+    <section class="section faq" aria-labelledby="fragor">
+      <div class="wrap faq-layout">
+        <div class="faq-intro">
+          <span class="eyebrow">Snabba svar</span>
+          <h2 id="fragor">Det du vill veta<br>innan du går vidare.</h2>
+          <p>Tydliga svar om sidans roll, länkar, storlekar och vad bilder kan visa.</p>
+        </div>
+
+        <div>
+          <details open>
+            <summary>Vad är en LoveGoBuy spreadsheet?</summary>
+            <p>En LoveGoBuy spreadsheet är en organiserad lista med produktidéer och länkar som kan användas vid research inför ett köp. Den ersätter inte kontroll av aktuell produkt, variant, storlek och villkor hos säljaren eller inköpsplattformen.</p>
+          </details>
+
+          <details>
+            <summary>Är detta LoveGoBuys officiella webbplats?</summary>
+            <p>Nej. Detta är en oberoende svenskspråkig inspirations- och jämförelseguide utan påstådd officiell koppling till LoveGoBuy eller de varumärken som nämns.</p>
+          </details>
+
+          <details>
+            <summary>Vart leder sidans knappar och kategorier?</summary>
+            <p>Kategorilänkarna öppnar respektive kategori på hipobuyfind.com. Övriga länkar öppnar https://www.hipobuyfind.com. De leder inte direkt till LoveGoBuys kassa eller till en bestämd produkt.</p>
+          </details>
+
+          <details>
+            <summary>Hur väljer jag storlek på skor och kläder?</summary>
+            <p>Jämför produktens måttabell med ett plagg eller ett par skor som redan passar. Kontrollera innersulans längd för skor och bröstvidd, axelbredd samt längd för överdelar. Fråga säljaren om mått saknas.</p>
+          </details>
+
+          <details>
+            <summary>Bevisar QC-bilder att en vara är äkta?</summary>
+            <p>Nej. QC-bilder kan visa synliga detaljer och vissa fel, men de bevisar inte äkthet, materialsammansättning eller långsiktig hållbarhet. Produktbilderna här är stilreferenser och innebär ingen äkthetsgaranti.</p>
+          </details>
+
+          <details>
+            <summary>Hur räknar jag på leverans till Sverige?</summary>
+            <p>Utgå från varupris och kontrollera sedan inrikes frakt, eventuella service- och betalningsavgifter, internationell frakt samt tillämpliga importkostnader. Använd aktuella uppgifter för destination, paketvikt och paketmått; sidan anger inga fasta fraktpriser eller leveranstider.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="nasta-steg">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Nästa steg</span>
+          <h2 id="nasta-steg">En kategori. En tydligare jämförelse.</h2>
+          <p>Börja med det du faktiskt behöver och låt mått, bilder och produktuppgifter styra din lista.</p>
+        </div>
+        <a class="button" href="https://www.hipobuyfind.com">Besök Hipobuyfind <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a class="logo" href="https://www.hipobuyfind.com">hipobuyfind.com</a>
+      <p>Oberoende svensk guide. Vi tar inte emot beställningar eller betalningar på denna sida. Produktuppgifter och tillgänglighet måste kontrolleras hos den aktuella säljaren eller inköpsplattformen. Varumärken tillhör respektive ägare. Nike-bilden kommer från Unsplash; övriga stilbilder hämtas från externa katalogbilder.</p>
+    </div>
+  </footer>
+</body>
+</html>
